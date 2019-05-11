@@ -32,8 +32,8 @@ export class UsersController {
     }
 
     @Put(':id')
-    editUserTest(@Param('id') id, @Body() user) {
-        return this.usersService.editUserTest(id, user);
+    editUser(@Param('id') id, @Body() user) {
+        return this.usersService.editUser(id, user);
     }
 
     // @Put(':id')
