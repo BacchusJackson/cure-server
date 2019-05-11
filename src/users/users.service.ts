@@ -8,7 +8,7 @@ import { UserDto } from "./dto/user.dto";
 import * as bcrypt from 'bcryptjs';
 import { ifError } from 'assert';
 
-// The functions that interact with mongoDB
+// The functions that interact with mongoDB, CRUD for users
 
 @Injectable()
 export class UsersService {
