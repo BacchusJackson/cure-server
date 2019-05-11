@@ -36,8 +36,4 @@ export class UsersController {
         return this.usersService.editUser(id, user);
     }
 
-    // @Put(':id')
-    // editUser(@Param('id') id, @Body() user): Promise<User> {
-    //     return this.usersService.editUser(id, user);
-    // }
 }
