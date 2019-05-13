@@ -9,7 +9,9 @@ import * as bcrypt from 'bcryptjs';
 
 @Injectable()
 export class UsersService {
-constructor(@InjectModel('users') private readonly userModel: Model<User>){}
+constructor(
+    @InjectModel('users') private readonly userModel: Model<User>
+){}
     async findAll(): Promise<User[]> {
         return await this.userModel.find()
     };

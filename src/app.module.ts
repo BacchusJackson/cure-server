@@ -5,12 +5,14 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { EntriesModule } from './entries/entries.module';
 import { ActivitiesModule } from './activities/activities.module';
+import { AuthenticationModule } from "./authentication/authentication.module";
 import links from './links'
 
 @Module({
   imports: [
     UsersModule, EntriesModule, ActivitiesModule,
-    MongooseModule.forRoot(links.cureDatabase)
+    MongooseModule.forRoot(links.cureDatabase),
+    AuthenticationModule
   ],
   controllers: [AppController],
   providers: [AppService],
