@@ -14,15 +14,15 @@ constructor(@InjectModel('users') private readonly userModel: Model<User>){}
         return await this.userModel.find()
     };
     
-    async findUserByID(userID): Promise<User> {
+    async findUserByID(userID: String): Promise<User> {
         return await this.userModel.find({_id: userID})
     };
 
-    async findUserByUsername(username): Promise<User>{
+    async findUserByUsername(username: String): Promise<User>{
         return await this.userModel.find({username: username})
     }
 
-    async deleteUser(userID): Promise<User> {
+    async deleteUser(userID: String): Promise<User> {
         return await this.userModel.findOneAndDelete({_id: userID})
     };
 
@@ -42,7 +42,7 @@ constructor(@InjectModel('users') private readonly userModel: Model<User>){}
         return await newUser.save()
     };
 
-    async editUser(id, reqUser: UserDto): Promise<User|{errorMessage:String}> {
+    async editUser(id: String, reqUser: UserDto): Promise<User|{errorMessage:String}> {
             
             // Hash password if they want to change it
             if(reqUser.password) {
@@ -61,6 +61,7 @@ constructor(@InjectModel('users') private readonly userModel: Model<User>){}
             } else {
                 // Any other strange errors that might pop up
                 return {errorMessage: 'Something went terrible wrong...'}
+                console.log('UHANDLED ERROR ' + error.name);
             };
         };
 
