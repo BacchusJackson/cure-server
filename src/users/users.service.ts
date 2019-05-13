@@ -1,12 +1,9 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model } from "mongoose";
-
 import { User } from "./interfaces/user.interface";
-import { deleteResponse } from "./interfaces/responses.interface";
 import { UserDto } from "./dto/user.dto";
 import * as bcrypt from 'bcryptjs';
-import { ifError } from 'assert';
 
 // The functions that interact with mongoDB, CRUD for users
 
@@ -39,9 +36,9 @@ constructor(@InjectModel('users') private readonly userModel: Model<User>){}
         // Add the rest of the user properties and defaults
         newUser.password = hash
         newUser.displayName = `${newUser.firstName} ${newUser.lastName}`
-        newUser.site = 'defaut'
-        newUser.clinic = 'default'
-        newUser.status = 'temp'
+        newUser.site = reqUser.site || 'defaut'
+        newUser.clinic = reqUser.clinic || 'default'
+        newUser.status = reqUser.status || 'temp'
         return await newUser.save()
     };
 
