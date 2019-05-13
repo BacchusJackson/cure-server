@@ -8,31 +8,31 @@ import { User } from "./interfaces/user.interface";
 export class UsersController {
     constructor(private readonly usersService: UsersService) {}
     @Get()
-    findAll(): Promise<User[]> {
+    findAllRequest(): Promise<User[]> {
         return this.usersService.findAll()
     }
     @Get('/username/:username')
-    findUserByUsername(@Param('username') username): Promise<User> {
+    findUserByUsernameRequest(@Param('username') username): Promise<User> {
         return this.usersService.findUserByUsername(username);
     }
 
     @Get('/id/:id')
-    findUserByID(@Param('id') id): Promise<User> {
+    findUserByIDRequest(@Param('id') id): Promise<User> {
         return this.usersService.findUserByID(id);
     }
 
     @Delete(':id')
-    deleteUser(@Param('id') id): Promise<User> {
+    deleteUserRequest(@Param('id') id): Promise<User> {
         return this.usersService.deleteUser(id);
     }
 
     @Post()
-    addUser(@Body() newUser): Promise<User> {
+    addUserRequest(@Body() newUser): Promise<User> {
         return this.usersService.addUser(newUser);
     }
 
     @Put(':id')
-    editUser(@Param('id') id, @Body() user) {
+    editUserRequest(@Param('id') id, @Body() user) {
         return this.usersService.editUser(id, user);
     }
 
