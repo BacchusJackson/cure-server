@@ -14,15 +14,11 @@ export class AuthenticationService {
     
         const user = await this.usersService.findUserByUsername(userCredentials.username)
 
-        console.log(user);
-        
-        if(!user) {
+        if(!user.username) {
             return {errorMessage: 'Incorrect Login Information...'}
         }
 
-        return false
-
-        if(bcrypt.compareSync(userCredentials.password, user[0].password) == true) {
+        if(bcrypt.compareSync(userCredentials.password, user.password) == true) {
             let accessToken = this.jwtService.sign({userID: user.id});
 
             return {expiresIn: 3600, accessToken};

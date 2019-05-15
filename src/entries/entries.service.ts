@@ -13,7 +13,7 @@ constructor(@InjectModel('entries') private readonly entryModel: Model<Entry>){}
     };
 
     async findEntryByID(id: string): Promise<Entry> {
-        return await this.entryModel.find({_id:id})
+        return await this.entryModel.findByID(id)
     };
 
     async deleteEntry(id: string): Promise<Entry> {

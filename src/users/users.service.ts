@@ -17,11 +17,11 @@ constructor(
     };
     
     async findUserByID(userID: String): Promise<User> {
-        return await this.userModel.find({_id: userID})
+        return await this.userModel.findByID(userID)
     };
 
     async findUserByUsername(username: String): Promise<User>{
-        return await this.userModel.find({username: username})
+        return await this.userModel.findOne({username: username})
     }
 
     async deleteUser(userID: String): Promise<User> {
