@@ -17,7 +17,7 @@ constructor(
     };
     
     async findUserByID(userID: String): Promise<User> {
-        return await this.userModel.findByID(userID)
+        return await this.userModel.findById(userID)
     };
 
     async findUserByUsername(username: String): Promise<User>{
