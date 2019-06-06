@@ -4,8 +4,4 @@ import { Injectable } from '@nestjs/common';
 export class AppService {
   constructor() {}
 
-  getHomepage(): string {
-    return 'Hello World!';
-  }
-
 }

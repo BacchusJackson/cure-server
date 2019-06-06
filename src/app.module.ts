@@ -6,7 +6,9 @@ import { UsersModule } from './users/users.module';
 import { EntriesModule } from './entries/entries.module';
 import { ActivitiesModule } from './activities/activities.module';
 import { AuthenticationModule } from "./authentication/authentication.module";
-import links from './links'
+import links from './links';
+
+// To connect to the production database change './links' --> './links.prod'
 
 @Module({
   imports: [

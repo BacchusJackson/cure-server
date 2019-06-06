@@ -62,8 +62,8 @@ constructor(
                 return {errorMessage:'Improper ID passed'}
             } else {
                 // Any other strange errors that might pop up
-                return {errorMessage: 'Something went terrible wrong...'}
                 console.log('UHANDLED ERROR ' + error.name);
+                return {errorMessage: 'Something went terrible wrong...'}
             };
         };
 

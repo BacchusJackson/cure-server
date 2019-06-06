@@ -11,10 +11,10 @@ export class AuthenticationService {
         ) {}
     
     async signIn(userCredentials: {username: String, password: string}) {
-    
+            
         const user = await this.usersService.findUserByUsername(userCredentials.username)
 
-        if(!user.username) {
+        if(!user) {
             return {errorMessage: 'Incorrect Login Information...'}
         }
 

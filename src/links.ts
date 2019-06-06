@@ -1,3 +1,4 @@
 export default {
-    cureDatabase : 'mongodb://localhost:27017/CURE'
-} 
+    cureDatabase : 'mongodb://' + process.env.MONGO_DATABASE + '/CURE'
+    // cureDatabase: 'mongodb://localhost:27017/CURE'
+}

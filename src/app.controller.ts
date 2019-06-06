@@ -1,12 +1,10 @@
-import { Controller, Get, UseGuards, Post, Body } from '@nestjs/common';
-import { AppService } from './app.service';
-import { AuthGuard } from '@nestjs/passport';
+import { Controller, Get, Post, Body, Res } from '@nestjs/common';
 import { AuthenticationService } from "./authentication/authentication.service";
+import * as path from 'path'
 
 @Controller()
 export class AppController {
   constructor(
-    private readonly appService: AppService,
     private readonly authService: AuthenticationService
     ) {}
 
@@ -15,9 +13,11 @@ export class AppController {
     return this.authService.signIn(userCredentials)
   }
 
-  @Get()
-  @UseGuards(AuthGuard('jwt'))
-  homepageRequest(): string {
-    return this.appService.getHomepage();
+  @Get('/')
+  root(@Res() response): void {
+    // Send a simple html file
+    response.sendFile(path.resolve('./src/hello.html'));
+  
   }
+
 }
