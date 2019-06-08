@@ -8,6 +8,6 @@ RUN npm install
 
 COPY . .
 
-ENV MONGO_DATABASE="localhost:27017"
+ENV MONGO_DATABASE=host.docker.internal
 
 CMD npm run start:prod
